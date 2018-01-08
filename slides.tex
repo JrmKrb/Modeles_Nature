@@ -77,7 +77,7 @@ Consensus Over Random Networks}
 \begin{frame}
 	Il y a déjà eu plusieurs résultats sur le sujet:
 	\begin{itemize}
-		\item $x_k$ converge presque sûrement si les arêtes de $G(W_k)$ sont choisies de manière indépendante et avec la même probabilité,
+		\item $x(k)$ converge presque sûrement si les arêtes de $G(W_k)$ sont choisies de manière indépendante et avec la même probabilité,
 		\pause
 		\item La convergence en probabilité a été prouvée dans le cas d'un modèle avec des arêtes orientées et non-nécessairement indépendantes, avec une hypothèse un peu forte sur les matrices.
 	\end{itemize}
@@ -92,24 +92,34 @@ Consensus Over Random Networks}
 		\item Cas particulier d'un système dynamique qui converge vers un vecteur fixe avec probabilité 1
 	\end{itemize}
 \end{frame}
-				
-\begin{frame}
-	On considère que:
-	\begin{itemize}
-		\item Les $W_k$ sont des matrices stochastiques indépendantes et identiquement distribuées (i.i.d.)
-		\item
-	\end{itemize}	
-\end{frame}
 		
 \section{Définitions}
 \begin{frame}
-	$ x_k = W_k(\omega)x_{k-1}$ où $W_k$ est une matrice de poids.
+	$ x(k) = W_k(\omega)x(k-1)$ où $W_k$ est une matrice de poids.
 	
 	\begin{itemize}
+		\item Les $W_k$ sont des matrices stochastiques indépendantes et identiquement distribuées,
 		\item $j$ a accès à $i$ si $(i,j)$ est une arête,
 		\item $i$ et $j$ communiquent si $(i,j)$ et $(j,i)$ sont des arêtes,
-		\item La relation de communication est une relation d'équivalence qui permet de définir de regrouper les arêtes par classes d'équivalence.
+		\item La relation de communication est une relation d'équivalence qui permet de regrouper les arêtes par classes d'équivalence.
 	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\textbf{Consensus en probabilité:}
+	
+	$\forall\ \epsilon > 0\ \forall\ i,j = 1,..,n\ P(|x_i(k) - x_j(k)| > \epsilon) \rightarrow 0$
+	
+	lorsque $k \rightarrow 0$
+	
+	\bigbreak
+	
+	\pause
+	
+	
+	\textbf{Consensus presque sûr (plus forte):}
+	
+	$\forall\ i,j = 1,..,n\ |x_i(k) - x_j(k)|\rightarrow 0$ presque sûrement.
 \end{frame}
 
 \section{Ergodicité}
@@ -146,6 +156,37 @@ Consensus Over Random Networks}
 	
 \end{frame}
 
-\section{Résultats}
+\begin{frame}
+	\textbf{Coefficient de d'ergodicité}
+		Une fonction $\tau(.)$ définie sur l'ensemble des matrices stochastiques de taille $n \times n$ est un coefficient d'ergodicité si $0 \leq \tau(.) \leq 1$.
+		\bigbreak
+		Un coefficient d'ergodicité est dît propre si:
+		$\tau(W) = 0 \iff W = $ \textbf{1}$d^T$
+		
+\end{frame}
 
+
+\begin{frame}
+	\textbf{Théorème 1:}
+		L'ergodicité faible du produit à gauche des matrices stochastiques est équivalente à son ergodicité forte.
+	\bigbreak
+	
+	\pause
+
+	\textbf{Théorème 2:}
+		Si $\tau(.)$ est un coefficient d'ergodicité propre et que pour les $\forall m \geq 1$ matrices stochastiques $W_k,\ k=1,..,m$ on a $\tau(W_m .. W_2W_1) \leq \prod_{k=1}^m\tau(W_k)$,
+		
+	\pause	
+	\bigbreak		
+		
+		Alors la séquence $W_k$ est faiblement ergodique si et seulement si il existe une séquence d'entiers croissants $k_r, k=1,2,..$ telle que :
+
+			\bigbreak
+			
+			$\sum_{k=1}^{\infty}(1 - \tau(W_{k_{r+1}}..W_{k_r + 1}) = \infty$
+
+\end{frame}
+
+\section{Résultats}
+	
 \end{document}
