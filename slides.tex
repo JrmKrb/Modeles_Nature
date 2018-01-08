@@ -15,7 +15,8 @@
 
 \usetheme{Warsaw}
 
-\title{Modèles de la Nature}
+\title{A Necessary and Sufficient Condition for
+Consensus Over Random Networks}
 \author{Jeremy Krebs - Guillaume Soulié}
 \institute{Université Paris Saclay}
 \date{\today}
@@ -35,5 +36,116 @@
 
 
 \section{Introduction}
+		\subsection{Généralités}
+		
+\begin{frame}
+	\begin{itemize}
+		\item Problème du Consensus 
+		\pause
+		\item Temps discret 
+		\pause
+		\item Systèmes stochastiques
+	\end{itemize}
+	
+	\pause
+	
+	Problème de la forme:
+	$ x_{k+1} = W_k . x_k $
+
+	\pause
+	
+	$W_k$ peut être vu comme la matrice de poids d'arêtes d'un graphe aléatoire.
+\end{frame}
+
+	\subsection{État de l'art}
+
+\begin{frame}
+		Le problème de consensus suscite beaucoup d'intérêt:
+		 \begin{itemize}
+		 	\item Coordination d'agents autonomes
+		 	\pause
+		 	\item Calculs de moyennes d'un groupe de capteurs
+		 	\pause
+		 	\item Problèmes de rendez-vous
+		 \end{itemize}
+		 
+		 \pause
+		 
+		 Cependant ces problèmes considéraient un système déterministe.
+\end{frame}
+
+\begin{frame}
+	Il y a déjà eu plusieurs résultats sur le sujet:
+	\begin{itemize}
+		\item $x_k$ converge presque sûrement si les arêtes de $G(W_k)$ sont choisies de manière indépendante et avec la même probabilité,
+		\pause
+		\item La convergence en probabilité a été prouvée dans le cas d'un modèle avec des arêtes orientées et non-nécessairement indépendantes, avec une hypothèse un peu forte sur les matrices.
+	\end{itemize}
+\end{frame}
+
+	\subsection{Objectif}
+
+\begin{frame}
+	Objectif:
+	\begin{itemize}
+		\item Trouver une condition nécessaire et suffisante pour un consensus presque sûr
+		\item Cas particulier d'un système dynamique qui converge vers un vecteur fixe avec probabilité 1
+	\end{itemize}
+\end{frame}
+				
+\begin{frame}
+	On considère que:
+	\begin{itemize}
+		\item Les $W_k$ sont des matrices stochastiques indépendantes et identiquement distribuées (i.i.d.)
+		\item
+	\end{itemize}	
+\end{frame}
+		
+\section{Définitions}
+\begin{frame}
+	$ x_k = W_k(\omega)x_{k-1}$ où $W_k$ est une matrice de poids.
+	
+	\begin{itemize}
+		\item $j$ a accès à $i$ si $(i,j)$ est une arête,
+		\item $i$ et $j$ communiquent si $(i,j)$ et $(j,i)$ sont des arêtes,
+		\item La relation de communication est une relation d'équivalence qui permet de définir de regrouper les arêtes par classes d'équivalence.
+	\end{itemize}
+\end{frame}
+
+\section{Ergodicité}
+\begin{frame}
+	$x_k = W_k ... W_1\ x_0$
+	
+	\bigbreak
+	
+	Intérêt d'étudier le produit infini de matrices $W_i$ et son ergodicité.
+	
+	\bigbreak
+		
+	Notons $U^{(k, p)} = W_{p+k}...W_{p+1}$ le produit à gauche des matrices de la séquence.
+\end{frame}
+
+\begin{frame}
+	\textbf{Définition - Ergodicité faible:}
+	
+	La séquence infinie $W_1, W_2, ...$ est faiblement ergodique si et seulement si
+	
+	$ \forall\ i, j, s = 1,..,n\ $ et $\forall\ p > 0\ (U_{i,s}^{k,p} - U_{j,s}^{k,p}) \rightarrow 0$ quand $k \rightarrow \infty$
+	
+	\bigbreak
+
+	\pause
+	
+	\textbf{Définition - Ergodicité forte:}
+	
+	La séquence infinie $W_1, W_2, ...$ est faiblement ergodique si et seulement si
+	
+	$ \forall\ i, s = 1,..,n\ U_{i,s}^{k,p} \rightarrow d_s^p$ quand $k \rightarrow \infty$
+	
+	où $d_s^p$ est une constante ne dépendant pas de $i$
+	
+\end{frame}
+
+\section{Résultats}
 
 \end{document}
