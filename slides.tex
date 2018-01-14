@@ -147,16 +147,41 @@ Consensus Over Random Networks}
 	$ \forall\ i, s = 1,..,n\ U_{i,s}^{k,p} \rightarrow d_s^p$ quand $k \rightarrow \infty$
 	
 	où $d_s^p$ est une constante ne dépendant pas de $i$
+	\\ 
+	\vspace{1cm}
+	\pause
+	Dans le contexte qui nous intéresse, on peut montrer (en utilisant les suites de Cauchy) 
+	que les notions d'ergodicité faible et fortes sont équivalentes.
 	
+\end{frame}
+
+
+\begin{frame}
+	\textbf{Ergodicité - consensus}
+
+	Insérer schéma ici pour montrer pourquoi l'ergodicité peut être lié au consensus.
 \end{frame}
 
 \begin{frame}
 	\textbf{Coefficient de d'ergodicité}
 		Une fonction $\tau(.)$ définie sur l'ensemble des matrices stochastiques de taille $n \times n$ est un coefficient d'ergodicité si $0 \leq \tau(.) \leq 1$.
 		\bigbreak
+		\pause
 		Un coefficient d'ergodicité est dît propre si:
-		$\tau(W) = 0 \iff W = $ \textbf{1}$d^T$
-		
+		\begin{center}
+			$\tau(W) = 0 \iff W = $ \textbf{1}$d^T$
+		\end{center}
+		\pause
+		Example de coefficient d'ergodicité.
+\end{frame}
+
+\begin{frame}
+	\textbf{Lien ergodicité faible - coefficient d'ergodicité}
+	L'ergodicité faible est équiavelente à:
+	\begin{equation}
+		\nonumber
+		\lim_{k \to \inf} \tau(U^{(k, p)}) = 0 \quad \forall p \in \mathbb{N} 
+	\end{equation}
 \end{frame}
 
 
