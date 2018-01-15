@@ -4,6 +4,8 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{bm}
+\usepackage{amsmath}
 
 \addtobeamertemplate{navigation symbols}{}{%
 \usebeamerfont{footline}%
@@ -36,8 +38,18 @@ Consensus Over Random Networks}
 
 
 \section{Introduction}
-	\subsection{État de l'art}
+\begin{frame}
+	\textbf{Le problème du consensus :}
 
+	"Le consensus demande à ce qu'un certain nombre de processus s'accordent sur une valeur unique."
+\end{frame}
+
+
+\begin{frame}
+	\tableofcontents
+\end{frame}
+
+\subsection{Etat de l'art}
 \begin{frame}
 		Le problème de consensus suscite beaucoup d'intérêt:
 		 \begin{itemize}
@@ -55,8 +67,7 @@ Consensus Over Random Networks}
 
 \begin{frame}
 	\begin{itemize}
-		\item Problème du Consensus 
-		\item Temps discret 
+		\item Temps discret: $t_0, t_1, ...$
 		\item Systèmes stochastiques
 	\end{itemize}
 	
@@ -77,22 +88,23 @@ Consensus Over Random Networks}
 	\end{itemize}
 \end{frame}
 
-	\subsection{Objectif}
+\subsection{Objectif}
 
 \begin{frame}
-	Objectif:
+	\textbf{Objectif}:
 	\begin{itemize}
 		\item Trouver une condition nécessaire et suffisante pour un consensus presque sûr
-		\item Cas particulier d'un système dynamique qui converge vers un vecteur fixe avec probabilité 1
+		\item S'intéresser à la valeur de convergence du consensus
 	\end{itemize}
 \end{frame}
 		
-\section{Définitions}
+\section{Préambule mathémathique}
+\subsection{Définitions}
 \begin{frame}
 	$ x(k) = W_k(\omega)x(k-1)$ où $W_k$ est une matrice de poids.
 	
 	\begin{itemize}
-		\item Les $W_k$ sont des matrices stochastiques indépendantes et identiquement distribuées,
+		\item Les $W_k$ sont des matrices stochastiques indépendantes et identiquement distribuées (i.i.d.),
 		\item $j$ a accès à $i$ si $(i,j)$ est une arête,
 		\item $i$ et $j$ communiquent si $(i,j)$ et $(j,i)$ sont des arêtes,
 		\item La relation de communication est une relation d'équivalence qui permet de regrouper les arêtes par classes d'équivalence.
@@ -116,7 +128,7 @@ Consensus Over Random Networks}
 	$\forall\ i,j = 1,..,n\ |x_i(k) - x_j(k)|\rightarrow 0$ presque sûrement.
 \end{frame}
 
-\section{Ergodicité}
+\subsection{Ergodicité}
 \begin{frame}
 	$x_k = W_k ... W_1\ x_0$
 	
@@ -159,7 +171,33 @@ Consensus Over Random Networks}
 \begin{frame}
 	\textbf{Ergodicité - consensus}
 
-	Insérer schéma ici pour montrer pourquoi l'ergodicité peut être lié au consensus.
+	\begin{center}		
+		$ x(k) = W_k \cdot x(k-1)$
+	\end{center}
+
+	\begin{equation}
+		\nonumber
+		\begin{pmatrix}
+			x^k_0\\
+			x^k_1\\
+			...\\
+			x^k_n
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			w^k_{00} & ... & w^k_{0n}\\
+			w^k_{10} & ... & w^k_{1n}\\
+			... &  & ... \\
+			w^k_{n0} & ... & w^k_{nn}
+		\end{pmatrix}
+		\cdot
+		\begin{pmatrix}
+			x^{k-1}_0\\
+			x^{k-1}_1\\
+			...\\
+			x^{k-1}_n
+		\end{pmatrix}
+	\end{equation}
 \end{frame}
 
 \begin{frame}
@@ -207,5 +245,79 @@ Consensus Over Random Networks}
 \end{frame}
 
 \section{Résultats}
-	
+
+\subsection{Condition nécéssaire et suffisante}
+\begin{frame}
+	\textbf{Théorème 3}
+	\begin{center}
+		$\{W_k\}_{k=0}^{\inf} = W_1, W_2, ...$ i.i.d. matrices stochastiques, 
+		avec des coefficients diagonaux positifs.
+		\pause
+		Il y a équivalence entre:
+		\begin{itemize}
+			\item $\{W_k\}_{k=0}^{\inf}$ est faiblement ergodic.
+			\pause
+			\item Le système $x(k) = (\mathbb{E}W_k)x(k-1)$ atteint un consensus.
+			\item $| \lambda_2(\mathbb{E}W_k)| < 1$
+		\end{itemize}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}
+	\textbf{Corrollaire 4 - (Résultat principal de l'article)}
+	\begin{center}
+		consensus presque surement atteint
+		$\iff$
+		$|\lambda_{2}(\mathbb{E}W_k)| < 1$
+	\end{center}
+\end{frame}
+
+
+\subsection{Valeur du consensus}
+\begin{frame}
+	\textbf{Valeur du consensus}
+
+	On a vu $| \lambda_2(\mathbb{E}W_k)| < 1$ implique $x \to c\textbf{1}$
+
+	($c$ dépend de $x(0)$ et des matrices $W_k$.)
+
+	\bigbreak
+	\pause
+	\textbf{Théorème 5}
+
+	For $y \in \mathbb{R}$, posons $S(y) = \{W \in S_n | y^TW = y^T\}$
+
+	si $| \lambda_2(\mathbb{E}W_k)| < 1$ et $\mu (S_n - s(y)) = 0$, alors
+
+	\begin{center}
+		$\lim_{k \to \inf}x(k) = (y^Tx(0))\textbf{1}$ \quad a.s.		
+	\end{center}
+	\pause
+	Les matrices $W_k$ partagent le même vecteur propre de gauche
+	(associé à la valeur propre 1).
+\end{frame}
+
+
+\section*{Conclusion}
+\begin{frame}
+	Ce que le papier apporte :
+	\begin{itemize}
+		\item Le problème du consensus peut être réduit à un problème de faible ergodicité.
+		\item Il est caractérisé par la valeur de la deuxième valeur propre de $\mathbb{E}W_k$.
+		\item Sous certaines conditions des $W_k$, on peut déterminer de manière certaines la valeur de consensus.
+	\end{itemize}
+	\pause
+	Pour aller plus loin :
+	\begin{itemize}
+		\item pont 1
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\LARGE Questions ?
+	\end{center}
+\end{frame}
+
 \end{document}
