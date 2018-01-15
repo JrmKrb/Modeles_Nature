@@ -245,7 +245,17 @@ Consensus Over Random Networks}
 \section{Résultats}
 
 \subsection{Condition nécéssaire et suffisante}
+
+
 \begin{frame}
+	\textbf{Lemme 1}
+	
+	L'ergodicité faible de $W_1, W_2, ... $ est un événement trivial.
+	\bigbreak
+	\pause
+	La démonstration repose sur la loi du zéro un de Kolmorov.
+	
+	\pause
 	\textbf{Théorème 3}
 	\begin{center}
 		$\{W_k\}_{k=0}^{\inf} = W_1, W_2, ...$ i.i.d. matrices stochastiques, 
@@ -260,6 +270,14 @@ Consensus Over Random Networks}
 		\end{itemize}
 	\end{center}
 	\pause
+	\bigbreak
+	Sa démonstration peut être faite au choix:
+	\begin{itemize}
+		\item En utilisant des résultats généraux de la théorie ergodique des chaines de Markov.
+		\item En utilisant le théorème 2.
+	\end{itemize}
+\end{frame}
+\begin{frame}
 	\textbf{Lemme 2} - (D'après [19])
 	\begin{itemize}
 		\item $\alpha_1, ..., \alpha_s$: classes de communication associées à $W$.
@@ -267,8 +285,6 @@ Consensus Over Random Networks}
 		\item alors $\alpha_r$ est initial $\iff$ $spectre(\alpha_r[W]) = \{1\}$.
 	\end{itemize}
 \end{frame}
-
-
 \begin{frame}
 	\textbf{Corrollaire 4 - (Résultat principal de l'article)}
 	\begin{center}
@@ -276,8 +292,10 @@ Consensus Over Random Networks}
 		$\iff$
 		$|\lambda_{2}(\mathbb{E}W_k)| < 1$
 	\end{center}
+	\pause
+	\bigbreak
+	=> vient généraliser certain papiers.
 \end{frame}
-
 
 \subsection{Valeur du consensus}
 \begin{frame}
@@ -309,13 +327,17 @@ Consensus Over Random Networks}
 	Ce que le papier apporte :
 	\begin{itemize}
 		\item Le problème du consensus peut être réduit à un problème de faible ergodicité.
+		\pause
 		\item Il est caractérisé par la valeur de la deuxième valeur propre de $\mathbb{E}W_k$.
+		\pause
 		\item Sous certaines conditions des $W_k$, on peut déterminer de manière certaines la valeur de consensus.
 	\end{itemize}
 	\pause
 	Pour aller plus loin :
 	\begin{itemize}
-		\item pont 1
+		\item Quelles sont les performances d'un tel consensus ?
+		\pause
+		\item Quelles réactions face aux perturbations ? (ajout d'un 'bruit de communication' stochastique, ...)
 	\end{itemize}
 \end{frame}
 
