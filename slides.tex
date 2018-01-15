@@ -35,8 +35,6 @@ Consensus Over Random Networks}
 \end{frame}      
 % ----------------------------
 
-
-
 \section{Introduction}
 \begin{frame}
 	\textbf{Le problème du consensus :}
@@ -159,7 +157,7 @@ Consensus Over Random Networks}
 	$ \forall\ i, s = 1,..,n\ U_{i,s}^{k,p} \rightarrow d_s^p$ quand $k \rightarrow \infty$
 	
 	où $d_s^p$ est une constante ne dépendant pas de $i$
-	\\ 
+	\\ backend
 	\vspace{1cm}
 	\pause
 	Dans le contexte qui nous intéresse, on peut montrer (en utilisant les suites de Cauchy) 
@@ -255,12 +253,19 @@ Consensus Over Random Networks}
 		\pause
 		Il y a équivalence entre:
 		\begin{itemize}
-			\item $\{W_k\}_{k=0}^{\inf}$ est faiblement ergodic.
+			\item $\{W_k\}_{k=0}^{\inf}$ est faiblement ergodique.
 			\pause
 			\item Le système $x(k) = (\mathbb{E}W_k)x(k-1)$ atteint un consensus.
 			\item $| \lambda_2(\mathbb{E}W_k)| < 1$
 		\end{itemize}
 	\end{center}
+	\pause
+	\textbf{Lemme 2} - (D'après [19])
+	\begin{itemize}
+		\item $\alpha_1, ..., \alpha_s$: classes de communication associées à $W$.
+		\item $\alpha_r[W]$ est la sous matricede $W$ associée à $\alpha_r$
+		\item alors $\alpha_r$ est initial $\iff$ $spectre(\alpha_r[W]) = \{1\}$.
+	\end{itemize}
 \end{frame}
 
 
