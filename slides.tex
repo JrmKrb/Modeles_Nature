@@ -51,13 +51,9 @@ Consensus Over Random Networks}
 		Le problème de consensus suscite beaucoup d'intérêt:
 		 \begin{itemize}
 		 	\item Coordination d'agents autonomes
-		 	\pause
 		 	\item Calculs de moyennes d'un groupe de capteurs
-		 	\pause
 		 	\item Problèmes de rendez-vous
 		 \end{itemize}
-		 
-		 \pause
 		 
 		 Cependant ces problèmes considéraient un système déterministe.
 \end{frame}		
@@ -147,7 +143,6 @@ Consensus Over Random Networks}
 	
 	\bigbreak
 
-	\pause
 	
 	\textbf{Définition - Ergodicité forte:}
 	
@@ -156,11 +151,8 @@ Consensus Over Random Networks}
 	$ \forall\ i, s = 1,..,n\ U_{i,s}^{k,p} \rightarrow d_s^p$ quand $k \rightarrow \infty$
 	
 	où $d_s^p$ est une constante ne dépendant pas de $i$
-	\\ backend
+	\\
 	\vspace{1cm}
-	\pause
-	Dans le contexte qui nous intéresse, on peut montrer (en utilisant les suites de Cauchy) 
-	que les notions d'ergodicité faible et fortes sont équivalentes.
 	
 \end{frame}
 
@@ -206,8 +198,6 @@ Consensus Over Random Networks}
 		\begin{center}
 			$\tau(W) = 0 \iff W = $ \textbf{1}$d^T$
 		\end{center}
-		\pause
-		Example de coefficient d'ergodicité.
 \end{frame}
 
 \begin{frame}
@@ -265,6 +255,7 @@ Consensus Over Random Networks}
 			\item $\{W_k\}_{k=0}^{\inf}$ est faiblement ergodique.
 			\pause
 			\item Le système $x(k) = (\mathbb{E}W_k)x(k-1)$ atteint un consensus.
+			\pause
 			\item $| \lambda_2(\mathbb{E}W_k)| < 1$
 		\end{itemize}
 	\end{center}
@@ -280,20 +271,19 @@ Consensus Over Random Networks}
 	\textbf{Lemme 2} - (D'après [19])
 	\begin{itemize}
 		\item $\alpha_1, ..., \alpha_s$: classes de communication associées à $W$.
-		\item $\alpha_r[W]$ est la sous matricede $W$ associée à $\alpha_r$
-		\item alors $\alpha_r$ est initial $\iff$ $spectre(\alpha_r[W]) = \{1\}$.
+		\item $\alpha_r[W]$ est la sous matrice de $W$ associée à $\alpha_r$
+		\item alors $\alpha_r$ est initiale $\iff$ $spectre(\alpha_r[W]) = \{1\}$.
 	\end{itemize}
 \end{frame}
 \begin{frame}
 	\textbf{Corrollaire 4 - (Résultat principal de l'article)}
 	\begin{center}
-		consensus presque surement atteint
+		Consensus presque sûrement atteint
 		$\iff$
 		$|\lambda_{2}(\mathbb{E}W_k)| < 1$
 	\end{center}
-	\pause
 	\bigbreak
-	=> vient généraliser certain papiers.
+	=> vient généraliser certains papiers.
 \end{frame}
 
 	\subsection{Valeur du consensus}
@@ -326,19 +316,14 @@ Consensus Over Random Networks}
 	Ce que le papier apporte :
 	\begin{itemize}
 		\item Le problème du consensus peut être réduit à un problème de faible ergodicité.
-		\pause
 		\item Il est caractérisé par la valeur de la deuxième valeur propre de $\mathbb{E}W_k$.
-		\pause
-		\item Sous certaines conditions des $W_k$, on peut déterminer de manière certaines la valeur de consensus.
+		\item Sous certaines conditions des $W_k$, on peut déterminer de manière certaine la valeur de consensus.
 	\end{itemize}
 	\pause
 	Pour aller plus loin :
 	\begin{itemize}
 		\item Quelles sont les performances d'un tel consensus ?
-		\pause
 		\item Quelles réactions face aux perturbations ? (ajout d'un 'bruit de communication' stochastique, ...)
-		\pause
-		\item Que se passe-t-il si la topologie du graphe varie au cours du temps ?
 	\end{itemize}
 \end{frame}
 
